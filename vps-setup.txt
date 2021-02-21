@@ -1,0 +1,62 @@
+(1).Hostinger os,user,password and more configuration setup.
+(2).SSH key genrate- *public key save a file, *private key save a file,*ssh key add to vps server.
+(3).Putty app login as a root user details.
+(4).Firewall ufw install. ||  apt-get install ufw
+(5).Nginx install. ||  apt-get install nginx
+(6).Firewall ufw app services allow  || *ufw allow OpenSSH *ufw allow 'Nginx HTTP' *ufw allow 'Nginx Full' 
+(7).Firewall status check  || ufw status
+(8).Add sudo user and password. ||  *adduser nodes  *password details *sudo-password:@Aa1Bb2Hh3@&&;
+(9).Access sudo permissions ||  usermod -aG sudo nodes
+(10).Enable ufw firewall || ufw enable
+(11).Firewall status check  || ufw status
+(12).Firewall ufw app services allow  || *sudo ufw allow http *sudo ufw allow ssh
+(13).Firewall status check  || ufw status
+(14).Nginx status check  || sudo systemctl status nginx
+(15).Apache server service stop  || sudo systemctl stop apache2
+(16).Nginx start  || sudo systemctl start nginx
+(17).Nginx status check  || sudo systemctl status nginx 
+(18).App update || sudo apt-get update
+(19) curl -sl https://deb.nodesource.com/setup_10.x | sudo -E bash
+   
+
+(20).Node js install || sudo apt-get install nodejs
+(#1).MongoDB installation
+(21).Add web/ folder on /var/www/ directory  || *cd /var/www/  *sudo rm -rf html *sudo mkdir web 
+(22).Deploy project for web/ folder
+(23).Yarn package install || linux_ubuntu_yarn.com all script ex.
+(24).Yarn install || sudo yarn install # sudo yarn init # sudo yarn add bcryptjs body-parser cookie-parser debug ejs # sudo yarn add express express-session express-validator jsonwebtoken #sudo yarn add mongoose morgan multer peer peerjs simple socket.io
+(25).Nginx default file configure ||  proxy_pass http://localhost:3000;
+(26). Nginx -t
+(27). Nginx restart || sudo systemctl restart nginx
+
+(28). Yarn start on website folder
+(29).Ip addrress
+(30). pm2 start yarn --interpreter bash --name web -- start
+
+
+(#2)Remove folder || sudo rm -rf foldername
+
+                    proxy_pass http://localhost:3000;
+                    proxy_set_header Host $host;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection "upgrade";
+                    proxy_set_header X-Nginx-Proxy true;
+                    proxy_set_header X-Real-IP $remote_addr;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    
+server {
+    listen 80;
+    server_name techbista.com;
+    location / {
+                    proxy_pass http://localhost:3000;
+                    proxy_set_header Host $host;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection "upgrade";
+                    proxy_http_version 1.1;
+                    proxy_set_header X-Real-IP $remote_addr;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+
+#/etc/mongod.conf
