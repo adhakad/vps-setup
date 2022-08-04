@@ -1,0 +1,66 @@
+(1).  apt-get install ufw
+(2).  apt-get install nginx
+(3).  ufw allow OpenSSH
+(4).  ufw allow 'Nginx HTTP'
+(5).  ufw allow 'Nginx Full'
+(6).  ufw status
+(7).  adduser nodes
+(8).  @Aa1Bb2Hh3@&&
+(9).  usermod -aG sudo nodes
+(10). ufw enable
+(11). ufw status
+(12). sudo ufw allow http
+(13). sudo ufw allow ssh
+(14). ufw status
+(15). sudo systemctl status nginx
+(16). sudo systemctl stop apache2
+(17). sudo systemctl start nginx
+(18). sudo systemctl status nginx
+(19). sudo apt-get update
+(20). curl -sl https://deb.nodesource.com/setup_10.x | sudo -E bash
+(21). sudo apt-get install nodejs
+(22). cd /var/www/
+(23). sudo rm -rf html
+(24). sudo mkdir web       #  After making folder web deploying project files
+(25). sudo apt install curl
+(26). curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+(27). echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+(28). sudo apt update
+(29). sudo apt install npm   /sudo apt install yarn
+(30). sudo yarn init
+(31). sudo yarn add bcryptjs body-parser cookie-parser debug ejs
+(32). sudo yarn add express express-session express-validator
+(33). sudo yarn add mongoose morgan multer peer peerjs simple socket.io uuid
+(34). cd /etc/nginx/sites-enabled/ 
+(35). sudo nano default       # Nginx default file configure
+(36). sudo nginx -t
+(37). sudo systemctl restart nginx
+(38). cd /var/www/web/
+(39). sudo npm install pm2 -g
+(40). pm2 start npm --name "app name" -- start     /      pm2 start yarn --interpreter bash --name web -- start
+(41). apt-get update
+(42). sudo apt-get install certbot
+(43). apt-get install python3-certbot-nginx
+(44). sudo nginx -t
+(45). sudo nginx -s reload
+(46). sudo certbot --nginx -d zoclass.xyz -d www.zoclass.xyz
+(47). 
+(48). 
+(49). 
+(50). 
+
+
+server {
+    listen 80;
+    server_name zoclass.xyz www.zoclass.xyz;
+    location / {
+                    proxy_pass http://localhost:3000;
+                    proxy_set_header Host $host;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection "upgrade";
+                    proxy_http_version 1.1;
+                    proxy_set_header X-Real-IP $remote_addr;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
